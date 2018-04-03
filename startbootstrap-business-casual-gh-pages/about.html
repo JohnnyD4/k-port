@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html">Home
+              <a class="nav-link text-uppercase text-expanded" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -67,24 +67,22 @@
                   <span class="section-heading-upper">Interested in Working with Me?</span>
                   <span class="section-heading-lower">Message Me</span>
                 </h2>
-                <div>
-                  <input type="text" placeholder="Full Name" class="field" id="name">
-                </div>
-                <div>
-                  <input type="text" placeholder="Email" class="field" id="email">
-                </div>
-                <div>
-                  <input type="text" placeholder="Phone" class="field" id="phone">
-                </div>
-                <div>
-                  <textarea type="text" placeholder="Comments" class="field" id="comments"
-                  ></textarea>
-                </div>
-                <div class="intro-button mx-auto">
-                    <p class="btn btn-primary btn-xl send">Send</p>
-                </div>
-                <!-- <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
-                <p class="mb-0">We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p> -->
+                  <div>
+                    <input name="name" type="text" placeholder="Full Name" class="field" id="name">
+                  </div>
+                  <div>
+                    <input name="email" type="text" placeholder="Email" class="field" id="email">
+                  </div>
+                  <div>
+                    <input name="phone" type="text" placeholder="Phone" class="field" id="phone">
+                  </div>
+                  <div>
+                    <textarea name="comments" type="text" placeholder="Comments" class="field" id="comments"
+                    ></textarea>
+                  </div>
+                  <div class="intro-button mx-auto">
+                      <input name="submit" type="submit" class="btn btn-primary btn-xl send" value="Send" />
+                  </div>
               </div>
             </div>
           </div>
@@ -102,9 +100,22 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
-       $(document).ready(function() {
-         console.log($("#comments"))
-       });
+      $(document).ready(function(){
+        $('.send').click(() => {
+          const name = $('#name').val();
+          const email = $('#email').val();
+          const phone = $('#phone').val();
+          const comments = $('#comments').val();
+          $.ajax({
+            type: 'POST',
+            url: 'mail.php',
+            // dataType: 'html',
+            data: { sent: true, name, email, phone, comments }
+          }).done((response) => {
+            console.log('message:', response);
+          })
+        });
+      });
     </script>
   </body>
 
