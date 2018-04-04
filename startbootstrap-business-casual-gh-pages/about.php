@@ -43,10 +43,10 @@
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="products.html">Portfolio</a>
+              <a class="nav-link text-uppercase text-expanded" href="products.php">Portfolio</a>
             </li>
             <li class="nav-item active px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="about.html">Contact</a>
+                <a class="nav-link text-uppercase text-expanded" href="about.php">Contact</a>
             </li>
             
           </ul>

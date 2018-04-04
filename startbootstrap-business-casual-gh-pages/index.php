@@ -45,10 +45,10 @@
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="products.html">Portfolio</a>
+              <a class="nav-link text-uppercase text-expanded" href="products.php">Portfolio</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.html">Contact</a>
+              <a class="nav-link text-uppercase text-expanded" href="about.php">Contact</a>
             </li>
           </ul>
         </div>
@@ -67,7 +67,7 @@
             <p class="mb-3">A Picture is worth a thousand words
             </p>
             <div class="intro-button mx-auto">
-              <a class="btn btn-primary btn-xl" href="about.html">Contact Me!</a>
+              <a class="btn btn-primary btn-xl" href="about.php">Contact Me!</a>
             </div>
           </div>
         </div>

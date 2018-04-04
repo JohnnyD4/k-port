@@ -40,15 +40,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html">Home
+              <a class="nav-link text-uppercase text-expanded" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="products.html">Portfolio</a>
+              <a class="nav-link text-uppercase text-expanded" href="products.php">Portfolio</a>
             </li>
             <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="about.html">Contact</a>
+                <a class="nav-link text-uppercase text-expanded" href="about.php">Contact</a>
             </li>
           </ul>
         </div>
