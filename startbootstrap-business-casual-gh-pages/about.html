@@ -26,14 +26,12 @@
 
     <h1 class="site-heading text-center text-white d-none d-lg-block">
         <img class="logo" src="img/KOP.png" alt="Logo">
-      <!-- <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-      <span class="site-heading-lower">Business Casual</span> -->
     </h1>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.html">KO Photography</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="index.php"><img class="navLogo" src="img/KOPwhite.png" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,20 +66,23 @@
                   <span class="section-heading-lower">Message Me</span>
                 </h2>
                   <div>
-                    <input name="name" type="text" placeholder="Full Name" class="field" id="name">
+                    <input name="name" type="text" placeholder="Full Name" class="field hide" id="name">
                   </div>
                   <div>
-                    <input name="email" type="text" placeholder="Email" class="field" id="email">
+                    <input name="email" type="text" placeholder="Email" class="field hide" id="email">
                   </div>
                   <div>
-                    <input name="phone" type="text" placeholder="Phone" class="field" id="phone">
+                    <input name="phone" type="text" placeholder="Phone" class="field hide" id="phone">
                   </div>
                   <div>
-                    <textarea name="comments" type="text" placeholder="Comments" class="field" id="comments"
+                    <textarea name="comments" type="text" placeholder="Comments" class="field hide" id="comments"
                     ></textarea>
                   </div>
                   <div class="intro-button mx-auto">
-                      <input name="submit" type="submit" class="btn btn-primary btn-xl send" value="Send" />
+                      <input name="submit" type="submit" class="btn btn-primary btn-xl send hide" value="Send" />
+                  </div>
+                  <div class="email-success">
+                    Thank you, I will get in contact with you ASAP!
                   </div>
               </div>
             </div>
@@ -101,19 +102,27 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
       $(document).ready(function(){
+        $('.email-success').hide();
         $('.send').click(() => {
           const name = $('#name').val();
           const email = $('#email').val();
           const phone = $('#phone').val();
           const comments = $('#comments').val();
-          $.ajax({
-            type: 'POST',
-            url: 'mail.php',
-            // dataType: 'html',
-            data: { sent: true, name, email, phone, comments }
-          }).done((response) => {
-            console.log('message:', response);
-          })
+          
+          $.post('mail.php',
+            {
+              name,
+              email,
+              phone,
+              comments,
+              sent: 'sent',
+            },
+            (data, status) => {
+              if (status === 'success') {
+                $('.hide').hide();
+                $('.email-success').show();
+              }
+            });
         });
       });
     </script>
